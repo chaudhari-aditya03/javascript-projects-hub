@@ -8,7 +8,7 @@ const add2 = function(a, b) {
   return a + b;
 };
 
-// Arrow Function
+// Arrow Function ->Arrow functions provide a shorter syntax for writing functions.Arrow is not Hoisted.
 const add3 = (a, b) => a + b;
 
 //Function Calls

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    //Traffice Light
+    <h1>Traffic Light</h1>
+    <label for="colorInput">Enter Traffic Light Color (red, yellow, green): </label>
+    <input type="text" id="colorInput" name="colorInput">
+    <button onclick="changeLight()">Change Light</button>
+    <div id="trafficLight" style=" width:100px; height:350px; background-color: grey; margin-top:20px; ">
+        <div id="redLight" style="width:100%; height:100px; border:1px solid black; border-radius: 50%; margin-bottom:10px;"></div>
+        <div id="yellowLight" style="width:100%; height:100px; border:1px solid black; border-radius: 50%; margin-bottom:10px;"></div>
+        <div id="greenLight" style="width:100%; height:100px; border:1px solid black; border-radius: 50%;"></div>
+    </div>
+    <script>
+        
+        function changeLight() {
+            let color = document.getElementById("colorInput").value;
+            if(color == 'red')
+        {
+            redLight.style.backgroundColor = "red";
+        }
+        else if(color == 'yellow')
+        {
+            yellowLight.style.backgroundColor = "yellow";
+        }
+        else if(color == 'green')
+        {
+            greenLight.style.backgroundColor = "green";
+        }
+        else
+        {
+            alert("Invalid Color! Please enter red, yellow, or green.");
+        }
+    };
+    </script>
+</body>
+</html>

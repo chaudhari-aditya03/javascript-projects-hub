@@ -1,5 +1,5 @@
 
-let bankAccount={
+let  bankAccount={
     accountHolderName: "Aditya",
     accountNumber: "1234567890",
     balance: 5000,

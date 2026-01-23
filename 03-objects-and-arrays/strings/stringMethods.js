@@ -1,5 +1,7 @@
 let name = "I am aditya Chaudhari , I am learning JavaScript";
 
+//Strings in JS are Immutable
+
 // 1. toUpperCase() - Converts the string to uppercase letters.
 console.log(name.toUpperCase()); // Output: "I AM ADITYA CHAUDHARI , I AM LEARNING JAVASCRIPT"
 

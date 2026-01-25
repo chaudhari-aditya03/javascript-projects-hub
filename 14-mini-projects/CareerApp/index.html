@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CareerHub - Find Your Dream Job</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Header/Navigation -->
+  <header class="header">
+    <div class="container">
+      <div class="nav">
+        <div class="logo">
+          <i class="fas fa-briefcase"></i>
+          <span>CareerHub</span>
+        </div>
+        <nav class="nav-links">
+          <a href="#jobs">Jobs</a>
+          <a href="#saved">Saved</a>
+          <a href="#profile">Profile</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section with Search -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">Find Your Dream Career</h1>
+        <p class="hero-subtitle">Explore thousands of job opportunities worldwide</p>
+        
+        <div class="search-box">
+          <div class="search-group">
+            <div class="input-wrapper">
+              <i class="fas fa-search"></i>
+              <input type="text" id="jobSearch" placeholder="Job title, keywords..." autocomplete="off">
+            </div>
+          </div>
+          
+          <div class="search-group">
+            <div class="input-wrapper">
+              <i class="fas fa-map-marker-alt"></i>
+              <input type="text" id="country" placeholder="Country" autocomplete="off">
+              <div id="country-suggestions" class="suggestions"></div>
+            </div>
+          </div>
+          
+          <div class="search-group">
+            <div class="input-wrapper">
+              <i class="fas fa-city"></i>
+              <input type="text" id="city" placeholder="City" autocomplete="off">
+              <div id="city-suggestions" class="suggestions"></div>
+            </div>
+          </div>
+          
+          <button class="search-btn" onclick="searchJobs()">
+            <i class="fas fa-search"></i>
+            <span>Search Jobs</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filters Section -->
+  <section class="filters-section">
+    <div class="container">
+      <div class="filters">
+        <div class="filter-group">
+          <label><i class="fas fa-layer-group"></i> Job Type</label>
+          <select id="jobType" onchange="filterJobs()">
+            <option value="all">All Types</option>
+            <option value="Full-time">Full-time</option>
+            <option value="Part-time">Part-time</option>
+            <option value="Contract">Contract</option>
+            <option value="Remote">Remote</option>
+          </select>
+        </div>
+        
+        <div class="filter-group">
+          <label><i class="fas fa-clock"></i> Experience</label>
+          <select id="experience" onchange="filterJobs()">
+            <option value="all">All Levels</option>
+            <option value="Entry">Entry Level</option>
+            <option value="Mid">Mid Level</option>
+            <option value="Senior">Senior Level</option>
+          </select>
+        </div>
+        
+        <div class="filter-group">
+          <label><i class="fas fa-dollar-sign"></i> Salary Range</label>
+          <select id="salaryRange" onchange="filterJobs()">
+            <option value="all">All Ranges</option>
+            <option value="0-50k">$0 - $50k</option>
+            <option value="50k-100k">$50k - $100k</option>
+            <option value="100k+">$100k+</option>
+          </select>
+        </div>
+        
+        <button class="reset-btn" onclick="resetFilters()">
+          <i class="fas fa-redo"></i> Reset
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Results Count -->
+  <div class="container">
+    <div class="results-header">
+      <h2 id="resultsCount">Loading jobs...</h2>
+      <div class="sort-options">
+        <label>Sort by:</label>
+        <select id="sortBy" onchange="sortJobs()">
+          <option value="recent">Most Recent</option>
+          <option value="salary-high">Salary: High to Low</option>
+          <option value="salary-low">Salary: Low to High</option>
+          <option value="company">Company A-Z</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- Jobs Grid -->
+  <section class="jobs-section">
+    <div class="container">
+      <div id="jobsGrid" class="jobs-grid">
+        <!-- Jobs will be dynamically inserted here -->
+      </div>
+      
+      <div id="noResults" class="no-results" style="display: none;">
+        <i class="fas fa-briefcase-blank"></i>
+        <h3>No jobs found</h3>
+        <p>Try adjusting your search criteria or filters</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Application Modal -->
+  <div id="applicationModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2><i class="fas fa-file-alt"></i> Apply for Position</h2>
+        <button class="close-modal" onclick="closeModal()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        <div id="jobDetails" class="job-details-modal"></div>
+        
+        <form id="applicationForm" class="application-form">
+          <div class="form-group">
+            <label>Full Name *</label>
+            <input type="text" id="fullName" required placeholder="John Doe">
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label>Email *</label>
+              <input type="email" id="email" required placeholder="john@example.com">
+            </div>
+            
+            <div class="form-group">
+              <label>Phone *</label>
+              <input type="tel" id="phone" required placeholder="+1 234 567 8900">
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label>LinkedIn Profile</label>
+            <input type="url" id="linkedin" placeholder="https://linkedin.com/in/yourprofile">
+          </div>
+          
+          <div class="form-group">
+            <label>Portfolio/Website</label>
+            <input type="url" id="portfolio" placeholder="https://yourportfolio.com">
+          </div>
+          
+          <div class="form-group">
+            <label>Upload Resume *</label>
+            <div class="file-upload">
+              <input type="file" id="resume" accept=".pdf,.doc,.docx" required>
+              <label for="resume" class="file-label">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <span>Choose file or drag here</span>
+              </label>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label>Cover Letter *</label>
+            <textarea id="coverLetter" required rows="6" placeholder="Tell us why you're a great fit for this position..."></textarea>
+          </div>
+          
+          <div class="form-actions">
+            <button type="button" class="btn-secondary" onclick="closeModal()">Cancel</button>
+            <button type="submit" class="btn-primary">
+              <i class="fas fa-paper-plane"></i> Submit Application
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Success Message -->
+  <div id="successMessage" class="success-message">
+    <i class="fas fa-check-circle"></i>
+    <span>Application submitted successfully!</span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

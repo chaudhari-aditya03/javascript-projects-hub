@@ -1,7 +1,7 @@
 let num = 59;
 if(num%2==0)
 {
-    console.log(`${num} is even`);
+    console.log(`is even`);
 }
 else
 {

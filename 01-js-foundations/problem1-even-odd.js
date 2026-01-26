@@ -1,5 +1,5 @@
 let num = 2;
-if(num%2==0)
+if(num%2==)
 {
     console.log(`number is even`);
 }

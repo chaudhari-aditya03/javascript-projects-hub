@@ -1,4 +1,4 @@
-let num = 5;
+let num = 50;
 if(num%2==0)
 {
     console.log(`number is even`);

@@ -5,5 +5,5 @@ if(num%2==0)
 }
 else
 {
-    console.log(`${num} is odd`);
+    console.log(` is odd`);
 }

@@ -1,0 +1,115 @@
+# HireSphere X .gitignore
+
+# IDE and Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+*~
+.DS_Store
+.env.local
+.env.*.local
+
+# Backend (Maven)
+target/
+*.class
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# Frontend (Node)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+dist/
+build/
+
+# Frontend (IDE)
+.env.local
+.env.*.local
+.cache/
+.parcel-cache
+.netlify
+
+# Database
+*.sql.backup
+database_backup/
+*.db
+*.sqlite
+
+# Logs
+logs/
+*.log
+*.log.*
+
+# OS specific
+Thumbs.db
+.AppleDouble
+.LSOverride
+._*
+
+# Runtime
+run/
+tmp/
+temp/
+*.pid
+
+# Environment
+.env
+.env.prod
+.env.dev
+.env.local
+
+# IDE specific
+*.sublime-project
+*.sublime-workspace
+*.code-workspace
+
+# Backup files
+*.bak
+*.backup
+*.orig
+
+# Build artifacts
+.gradle/
+build/
+dist/
+
+# Coverage reports
+coverage/
+.coverage
+
+# Generated files
+.generated/
+
+# Docker (local builds)
+docker-compose.override.yml
+
+# Secrets
+secrets/
+*.key
+*.pem
+*.jks
+*.p12
+
+# Large files
+*.iso
+*.dmg
+*.exe
+*.zip

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard - HireSphere X</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#F3F6F8]">
+  <!-- Header -->
+  <header class="w-full bg-white border-b border-gray-200 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex items-center justify-between py-3">
+        <div class="logo flex items-center gap-2 text-[#0A66C2] text-xl font-bold">
+          <i class="fas fa-globe"></i>
+          <span>HireSphere X</span>
+        </div>
+        <nav class="nav-links flex items-center gap-6">
+          <a href="#" class="text-[#0A66C2] font-semibold">Jobs</a>
+          <a href="#" class="text-gray-600 hover:text-[#0A66C2]">Saved</a>
+          <a href="#" class="text-gray-600 hover:text-[#0A66C2]">Alerts</a>
+          <div class="profile-section relative">
+            <button class="profile-btn flex items-center gap-2 bg-gray-100 hover:bg-gray-200 rounded-lg px-3 py-2" id="profileBtn">
+              <i class="fas fa-user-circle"></i>
+              <span id="profileName">User</span>
+              <i class="fas fa-chevron-down text-xs"></i>
+            </button>
+            <div class="profile-dropdown absolute right-0 mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-xl hidden" id="profileDropdown">
+              <a href="#" class="flex items-center gap-2 px-4 py-2 text-gray-700 pointer-events-none">
+                <i class="fas fa-envelope"></i>
+                <span id="profileEmail">email@example.com</span>
+              </a>
+              <button onclick="logoutUser()" class="w-full text-left flex items-center gap-2 px-4 py-2 text-red-600 hover:bg-red-50">
+                <i class="fas fa-sign-out-alt"></i>
+                Logout
+              </button>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Dashboard -->
+  <main class="dashboard max-w-7xl mx-auto px-4 py-8 space-y-8">
+    <!-- Hero strip -->
+    <section class="bg-gradient-to-r from-[#0A66C2] to-[#004182] text-white rounded-2xl p-6 shadow-lg">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div>
+          <p class="text-sm uppercase tracking-wide text-blue-100">Smart career hub</p>
+          <h1 class="text-3xl font-bold">Discover curated roles tailored for you</h1>
+          <p class="text-blue-100 mt-2">Backend-powered listings with live RapidAPI fallback so you never see an empty state.</p>
+        </div>
+        <div class="grid grid-cols-3 gap-4 text-center">
+          <div class="bg-white/10 backdrop-blur rounded-xl p-4">
+            <p class="text-2xl font-bold" id="statTotal">--</p>
+            <p class="text-blue-100 text-sm">Open roles</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-xl p-4">
+            <p class="text-2xl font-bold" id="statSaved">--</p>
+            <p class="text-blue-100 text-sm">Saved jobs</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-xl p-4">
+            <p class="text-2xl font-bold" id="statSource">API</p>
+            <p class="text-blue-100 text-sm">Data source</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div class="lg:col-span-2 space-y-6">
+        <!-- Search Section -->
+        <section class="search-section bg-white rounded-2xl shadow border border-gray-200 p-6">
+          <div class="search-bar flex flex-col md:flex-row gap-3">
+            <div class="flex-1 flex gap-3">
+              <input 
+                type="text" 
+                id="jobSearch" 
+                placeholder="Search by job title, skills, or company..."
+                class="flex-1 border border-gray-200 rounded-lg px-3 py-3 focus:ring-2 focus:ring-[#0A66C2] focus:border-[#0A66C2]"
+              >
+              <select id="locationFilter" class="w-40 border border-gray-200 rounded-lg px-3 py-3 focus:ring-2 focus:ring-[#0A66C2] focus:border-[#0A66C2]">
+                <option value="">All locations</option>
+                <option value="USA">USA</option>
+                <option value="India">India</option>
+                <option value="Remote">Remote</option>
+                <option value="United Kingdom">United Kingdom</option>
+              </select>
+            </div>
+            <button class="inline-flex items-center justify-center gap-2 bg-[#0A66C2] text-white font-semibold rounded-lg px-4 py-3 shadow hover:bg-[#004182] transition" id="searchBtn">
+              <i class="fas fa-search"></i>
+              <span>Search</span>
+            </button>
+          </div>
+
+          <!-- Filters -->
+          <div class="filters grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+            <div class="filter-group">
+              <label for="jobTypeFilter" class="block text-sm font-medium text-gray-800">
+                <i class="fas fa-briefcase"></i> Job Type
+              </label>
+              <select id="jobTypeFilter" class="mt-1 w-full border border-gray-200 rounded-lg px-3 py-2 focus:ring-2 focus:ring-[#0A66C2] focus:border-[#0A66C2]">
+                <option value="">All Types</option>
+                <option value="FULL_TIME">Full-time</option>
+                <option value="PART_TIME">Part-time</option>
+                <option value="REMOTE">Remote</option>
+                <option value="CONTRACT">Contract</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <label class="block text-sm font-medium text-gray-800">
+                <i class="fas fa-layer-group"></i> Quick picks
+              </label>
+              <div class="flex gap-2 mt-1 flex-wrap">
+                <button class="px-3 py-2 bg-gray-100 rounded-lg text-sm hover:bg-gray-200" onclick="document.getElementById('jobSearch').value='react'; searchJobs();">React</button>
+                <button class="px-3 py-2 bg-gray-100 rounded-lg text-sm hover:bg-gray-200" onclick="document.getElementById('jobSearch').value='java'; searchJobs();">Java</button>
+                <button class="px-3 py-2 bg-gray-100 rounded-lg text-sm hover:bg-gray-200" onclick="document.getElementById('jobSearch').value='data'; searchJobs();">Data</button>
+              </div>
+            </div>
+
+            <div class="flex items-end">
+              <button class="inline-flex items-center gap-2 w-full bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold rounded-lg px-4 py-2" id="resetFiltersBtn">
+                <i class="fas fa-redo"></i> Reset
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Results Header -->
+        <div class="flex justify-between items-center p-5 bg-white rounded-xl shadow border border-gray-200">
+          <h2 id="resultsCount" class="m-0 text-xl font-semibold text-gray-900">Loading jobs...</h2>
+          <span class="text-sm text-gray-500" id="resultsMeta">Powered by backend</span>
+        </div>
+
+        <!-- Jobs Grid -->
+        <section id="jobsGrid" class="jobs-grid grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <!-- Job cards will be inserted here -->
+        </section>
+
+        <!-- Load More Button -->
+        <div class="text-center mt-4">
+          <button class="inline-flex items-center gap-2 bg-[#0A66C2] text-white font-semibold rounded-lg px-4 py-2 shadow hover:bg-[#004182]" onclick="loadMore()" id="loadMoreBtn" style="display: none;">
+            <i class="fas fa-arrow-down"></i> Load More Jobs
+          </button>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="space-y-6">
+        <div class="bg-white border border-gray-200 rounded-2xl shadow p-4">
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-lg font-semibold text-gray-900">Saved jobs</h3>
+            <button class="text-sm text-[#0A66C2]" onclick="renderSavedJobs()">Refresh</button>
+          </div>
+          <div id="savedJobsList" class="space-y-3 text-sm text-gray-700">
+            <p class="text-gray-500">No saved jobs yet</p>
+          </div>
+        </div>
+
+        <div class="bg-white border border-gray-200 rounded-2xl shadow p-4">
+          <h3 class="text-lg font-semibold text-gray-900 mb-3">Tips</h3>
+          <ul class="space-y-2 text-sm text-gray-700">
+            <li class="flex gap-2"><i class="fas fa-bolt text-[#0A66C2]"></i><span>Backend-first search, automatic RapidAPI fallback.</span></li>
+            <li class="flex gap-2"><i class="fas fa-sync text-[#0A66C2]"></i><span>Tokens auto-refresh when expired.</span></li>
+            <li class="flex gap-2"><i class="fas fa-bookmark text-[#0A66C2]"></i><span>Save interesting roles to track them.</span></li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Job Details Modal -->
+  <div class="modal fixed inset-0 bg-black/30 hidden z-50 flex items-center justify-center p-4" id="jobDetailsModal">
+    <div class="modal-content max-w-3xl w-full bg-white rounded-2xl shadow-xl max-h-[90vh] overflow-y-auto">
+      <div id="jobDetailsContent" class="p-6">
+        <!-- Job details will be inserted here -->
+      </div>
+    </div>
+  </div>
+
+  <script src="js/utils.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+
+  <script>
+    const modal = document.getElementById('jobDetailsModal');
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) {
+        closeJobDetails();
+      }
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeJobDetails();
+      }
+    });
+
+    window.addEventListener('load', () => {
+      initDashboard();
+    });
+  </script>
+</body>
+</html>

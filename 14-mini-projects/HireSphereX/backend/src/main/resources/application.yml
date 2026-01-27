@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: hirespherex-backend
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/hirespherex?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: root
+    password: aditya
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+    open-in-view: false
+
+server:
+  port: 8080
+  servlet:
+    context-path: /api/v1
+
+logging:
+  level:
+    root: INFO
+    com.hirespherex: DEBUG
+
+jwt:
+  issuer: HireSphereX
+  access-token-expiration-minutes: 30
+  refresh-token-expiration-days: 7
+  secret: change-this-in-prod
+
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    path: /swagger-ui.html
+    operationsSorter: method

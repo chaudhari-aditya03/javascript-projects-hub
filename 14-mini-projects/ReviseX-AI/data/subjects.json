@@ -1,0 +1,419 @@
+{
+  "subjects": [
+    {
+      "id": "java",
+      "name": "Java",
+      "description": "Master object-oriented programming with Java",
+      "icon": "fab fa-java",
+      "color": "text-orange-600",
+      "topicCount": 24,
+      "categories": ["Basics", "Core", "Advanced", "Interview Focus"],
+      "topics": [
+        {
+          "id": "java-basics",
+          "name": "Java Fundamentals",
+          "description": "Variables, data types, operators, and control structures",
+          "category": "Basics",
+          "difficulty": "Easy",
+          "duration": "30 min",
+          "icon": "fas fa-play"
+        },
+        {
+          "id": "oop-concepts",
+          "name": "OOP Concepts",
+          "description": "Classes, objects, inheritance, polymorphism, encapsulation",
+          "category": "Core",
+          "difficulty": "Medium",
+          "duration": "45 min",
+          "icon": "fas fa-cubes"
+        },
+        {
+          "id": "collections",
+          "name": "Collections Framework",
+          "description": "List, Set, Map, Queue and their implementations",
+          "category": "Core",
+          "difficulty": "Medium",
+          "duration": "40 min",
+          "icon": "fas fa-layer-group"
+        },
+        {
+          "id": "multithreading",
+          "name": "Multithreading & Concurrency",
+          "description": "Threads, synchronization, executors, concurrent collections",
+          "category": "Advanced",
+          "difficulty": "Hard",
+          "duration": "60 min",
+          "icon": "fas fa-tasks"
+        },
+        {
+          "id": "streams-api",
+          "name": "Streams API",
+          "description": "Functional programming with Java 8+ streams",
+          "category": "Advanced",
+          "difficulty": "Medium",
+          "duration": "45 min",
+          "icon": "fas fa-stream"
+        },
+        {
+          "id": "exception-handling",
+          "name": "Exception Handling",
+          "description": "Try-catch, custom exceptions, best practices",
+          "category": "Core",
+          "difficulty": "Easy",
+          "duration": "30 min",
+          "icon": "fas fa-exclamation-triangle"
+        },
+        {
+          "id": "java-memory",
+          "name": "Memory Management",
+          "description": "Heap, stack, garbage collection",
+          "category": "Advanced",
+          "difficulty": "Hard",
+          "duration": "50 min",
+          "icon": "fas fa-memory"
+        },
+        {
+          "id": "design-patterns",
+          "name": "Design Patterns",
+          "description": "Singleton, Factory, Observer, Strategy patterns",
+          "category": "Interview Focus",
+          "difficulty": "Hard",
+          "duration": "60 min",
+          "icon": "fas fa-puzzle-piece"
+        }
+      ]
+    },
+    {
+      "id": "python",
+      "name": "Python",
+      "description": "Learn versatile Python programming",
+      "icon": "fab fa-python",
+      "color": "text-blue-500",
+      "topicCount": 22,
+      "categories": ["Basics", "Core", "Advanced", "Interview Focus"],
+      "topics": [
+        {
+          "id": "python-basics",
+          "name": "Python Fundamentals",
+          "description": "Variables, data types, basic operations",
+          "category": "Basics",
+          "difficulty": "Easy",
+          "duration": "25 min",
+          "icon": "fas fa-play"
+        },
+        {
+          "id": "data-structures",
+          "name": "Data Structures",
+          "description": "Lists, tuples, sets, dictionaries",
+          "category": "Core",
+          "difficulty": "Medium",
+          "duration": "40 min",
+          "icon": "fas fa-database"
+        },
+        {
+          "id": "functions",
+          "name": "Functions & Lambda",
+          "description": "Functions, decorators, lambda expressions",
+          "category": "Core",
+          "difficulty": "Medium",
+          "duration": "35 min",
+          "icon": "fas fa-code"
+        },
+        {
+          "id": "oop-python",
+          "name": "OOP in Python",
+          "description": "Classes, inheritance, magic methods",
+          "category": "Core",
+          "difficulty": "Medium",
+          "duration": "45 min",
+          "icon": "fas fa-cubes"
+        },
+        {
+          "id": "file-handling",
+          "name": "File Handling",
+          "description": "Reading/writing files, context managers",
+          "category": "Core",
+          "difficulty": "Easy",
+          "duration": "30 min",
+          "icon": "fas fa-file"
+        },
+        {
+          "id": "generators",
+          "name": "Generators & Iterators",
+          "description": "Generator functions, yield, iterators",
+          "category": "Advanced",
+          "difficulty": "Hard",
+          "duration": "45 min",
+          "icon": "fas fa-recycle"
+        },
+        {
+          "id": "decorators",
+          "name": "Decorators",
+          "description": "Function and class decorators",
+          "category": "Advanced",
+          "difficulty": "Hard",
+          "duration": "40 min",
+          "icon": "fas fa-star"
+        },
+        {
+          "id": "async-python",
+          "name": "Async Programming",
+          "description": "asyncio, async/await, coroutines",
+          "category": "Advanced",
+          "difficulty": "Hard",
+          "duration": "55 min",
+          "icon": "fas fa-bolt"
+        },
+        {
+          "id": "python-interview",
+          "name": "Python Interview Topics",
+          "description": "Most asked Python interview questions",
+          "category": "Interview Focus",
+          "difficulty": "Medium",
+          "duration": "60 min",
+          "icon": "fas fa-briefcase"
+        }
+      ]
+    },
+    {
+      "id": "javascript",
+      "name": "JavaScript",
+      "description": "Master modern JavaScript and ES6+",
+      "icon": "fab fa-js",
+      "color": "text-yellow-500",
+      "topicCount": 26,
+      "categories": ["Basics", "Core", "Advanced", "Interview Focus"],
+      "topics": [
+        {
+          "id": "js-fundamentals",
+          "name": "JavaScript Fundamentals",
+          "description": "Variables, types, operators, control flow",
+          "category": "Basics",
+          "difficulty": "Easy",
+          "duration": "30 min",
+          "icon": "fas fa-play"
+        },
+        {
+          "id": "functions-scope",
+          "name": "Functions & Scope",
+          "description": "Function declarations, closures, scope chain",
+          "category": "Core",
+          "difficulty": "Medium",
+          "duration": "40 min",
+          "icon": "fas fa-code"
+        },
+        {
+          "id": "objects-arrays",
+          "name": "Objects & Arrays",
+          "description": "Object manipulation, array methods",
+          "category": "Core",
+          "difficulty": "Medium",
+          "duration": "35 min",
+          "icon": "fas fa-cubes"
+        },
+        {
+          "id": "async-js",
+          "name": "Async JavaScript",
+          "description": "Callbacks, promises, async/await",
+          "category": "Advanced",
+          "difficulty": "Hard",
+          "duration": "50 min",
+          "icon": "fas fa-clock"
+        },
+        {
+          "id": "dom-manipulation",
+          "name": "DOM Manipulation",
+          "description": "Selecting, modifying, creating elements",
+          "category": "Core",
+          "difficulty": "Medium",
+          "duration": "35 min",
+          "icon": "fas fa-code"
+        },
+        {
+          "id": "event-handling",
+          "name": "Event Handling",
+          "description": "Event listeners, bubbling, delegation",
+          "category": "Core",
+          "difficulty": "Medium",
+          "duration": "35 min",
+          "icon": "fas fa-mouse-pointer"
+        },
+        {
+          "id": "es6-features",
+          "name": "ES6+ Features",
+          "description": "Arrow functions, destructuring, spread/rest",
+          "category": "Advanced",
+          "difficulty": "Medium",
+          "duration": "45 min",
+          "icon": "fas fa-star"
+        },
+        {
+          "id": "prototypes",
+          "name": "Prototypes & Inheritance",
+          "description": "Prototype chain, constructor functions",
+          "category": "Advanced",
+          "difficulty": "Hard",
+          "duration": "50 min",
+          "icon": "fas fa-link"
+        },
+        {
+          "id": "js-interview",
+          "name": "JavaScript Interview Prep",
+          "description": "Common interview questions and patterns",
+          "category": "Interview Focus",
+          "difficulty": "Hard",
+          "duration": "60 min",
+          "icon": "fas fa-briefcase"
+        }
+      ]
+    },
+    {
+      "id": "cpp",
+      "name": "C++",
+      "description": "Learn powerful C++ programming",
+      "icon": "fas fa-copyright",
+      "color": "text-blue-700",
+      "topicCount": 20,
+      "categories": ["Basics", "Core", "Advanced", "Interview Focus"],
+      "topics": [
+        {
+          "id": "cpp-basics",
+          "name": "C++ Fundamentals",
+          "description": "Syntax, data types, operators",
+          "category": "Basics",
+          "difficulty": "Easy",
+          "duration": "30 min",
+          "icon": "fas fa-play"
+        },
+        {
+          "id": "pointers",
+          "name": "Pointers & References",
+          "description": "Pointers, references, memory addresses",
+          "category": "Core",
+          "difficulty": "Medium",
+          "duration": "45 min",
+          "icon": "fas fa-hand-pointer"
+        },
+        {
+          "id": "oop-cpp",
+          "name": "OOP in C++",
+          "description": "Classes, inheritance, polymorphism",
+          "category": "Core",
+          "difficulty": "Medium",
+          "duration": "50 min",
+          "icon": "fas fa-cubes"
+        },
+        {
+          "id": "stl",
+          "name": "STL (Standard Template Library)",
+          "description": "Vectors, maps, algorithms",
+          "category": "Advanced",
+          "difficulty": "Hard",
+          "duration": "55 min",
+          "icon": "fas fa-book"
+        },
+        {
+          "id": "templates",
+          "name": "Templates",
+          "description": "Function and class templates",
+          "category": "Advanced",
+          "difficulty": "Hard",
+          "duration": "50 min",
+          "icon": "fas fa-layer-group"
+        },
+        {
+          "id": "memory-management-cpp",
+          "name": "Memory Management",
+          "description": "Dynamic allocation, smart pointers",
+          "category": "Advanced",
+          "difficulty": "Hard",
+          "duration": "45 min",
+          "icon": "fas fa-memory"
+        },
+        {
+          "id": "cpp-interview",
+          "name": "C++ Interview Questions",
+          "description": "Most asked C++ interview topics",
+          "category": "Interview Focus",
+          "difficulty": "Hard",
+          "duration": "60 min",
+          "icon": "fas fa-briefcase"
+        }
+      ]
+    },
+    {
+      "id": "sql",
+      "name": "SQL",
+      "description": "Master database querying with SQL",
+      "icon": "fas fa-database",
+      "color": "text-green-600",
+      "topicCount": 18,
+      "categories": ["Basics", "Core", "Advanced", "Interview Focus"],
+      "topics": [
+        {
+          "id": "sql-basics",
+          "name": "SQL Fundamentals",
+          "description": "SELECT, WHERE, ORDER BY, basic queries",
+          "category": "Basics",
+          "difficulty": "Easy",
+          "duration": "30 min",
+          "icon": "fas fa-play"
+        },
+        {
+          "id": "joins",
+          "name": "SQL Joins",
+          "description": "INNER, LEFT, RIGHT, FULL joins",
+          "category": "Core",
+          "difficulty": "Medium",
+          "duration": "40 min",
+          "icon": "fas fa-link"
+        },
+        {
+          "id": "aggregate-functions",
+          "name": "Aggregate Functions",
+          "description": "COUNT, SUM, AVG, GROUP BY, HAVING",
+          "category": "Core",
+          "difficulty": "Medium",
+          "duration": "35 min",
+          "icon": "fas fa-calculator"
+        },
+        {
+          "id": "subqueries",
+          "name": "Subqueries",
+          "description": "Nested queries, correlated subqueries",
+          "category": "Advanced",
+          "difficulty": "Hard",
+          "duration": "45 min",
+          "icon": "fas fa-layer-group"
+        },
+        {
+          "id": "indexes",
+          "name": "Indexes & Performance",
+          "description": "Creating indexes, query optimization",
+          "category": "Advanced",
+          "difficulty": "Hard",
+          "duration": "50 min",
+          "icon": "fas fa-tachometer-alt"
+        },
+        {
+          "id": "transactions",
+          "name": "Transactions & ACID",
+          "description": "ACID properties, transaction control",
+          "category": "Advanced",
+          "difficulty": "Hard",
+          "duration": "40 min",
+          "icon": "fas fa-exchange-alt"
+        },
+        {
+          "id": "sql-interview",
+          "name": "SQL Interview Questions",
+          "description": "Common SQL interview problems",
+          "category": "Interview Focus",
+          "difficulty": "Medium",
+          "duration": "60 min",
+          "icon": "fas fa-briefcase"
+        }
+      ]
+    }
+  ]
+}

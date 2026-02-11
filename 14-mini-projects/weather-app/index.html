@@ -2,21 +2,59 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Weather App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App - Real-time Weather</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-  <div class="app">
-    <h1>🌦️ Weather Detector</h1>
+  <div class="container">
+    <div class="app">
+      <div class="header">
+        <i class="fas fa-cloud-sun"></i>
+        <h1>Weather Finder</h1>
+        <p class="subtitle">Get real-time weather information</p>
+      </div>
 
-    <input type="text" id="country" placeholder="Enter Country">
-    <input type="text" id="city" placeholder="Enter City">
+      <div class="search-box">
+        <div class="input-group">
+          <i class="fas fa-globe-americas"></i>
+          <input type="text" id="country" placeholder="Enter Country (e.g., USA)" autocomplete="off">
+          <div id="country-suggestions" class="suggestions"></div>
+        </div>
+        
+        <div class="input-group">
+          <i class="fas fa-city"></i>
+          <input type="text" id="city" placeholder="Enter City (e.g., New York)" autocomplete="off">
+          <div id="city-suggestions" class="suggestions"></div>
+        </div>
 
-    <button onclick="getWeather()">Search</button>
+        <button onclick="getWeather()" class="search-btn">
+          <i class="fas fa-search"></i>
+          <span>Get Weather</span>
+        </button>
+      </div>
 
+    </div>
+
+    <div class="footer">
+      <p>🌍 Weather data updates in real-time</p>
+    </div>
+  </div>
+
+  <!-- Sidebar for Weather Results -->
+  <div id="sidebar" class="sidebar">
+    <div class="sidebar-header">
+      <h2>Weather Details</h2>
+      <button onclick="closeSidebar()" class="close-btn">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
     <div id="result" class="result"></div>
   </div>
+
+  <div id="overlay" class="overlay" onclick="closeSidebar()"></div>
 
   <script src="script.js"></script>
 </body>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn - ReviseX AI</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Prism.js for Code Highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    
+    <!-- Navigation Bar -->
+    <nav class="bg-white dark:bg-gray-800 shadow-lg fixed w-full top-0 z-50 transition-colors duration-300">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-3">
+                    <a href="index.html" class="flex items-center space-x-3">
+                        <i class="fas fa-graduation-cap text-blue-600 text-3xl"></i>
+                        <h1 class="text-2xl font-bold text-gray-800 dark:text-white">ReviseX AI</h1>
+                    </a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <!-- Score Display -->
+                    <div class="hidden md:flex items-center space-x-2 px-4 py-2 bg-green-50 dark:bg-gray-700 rounded-full">
+                        <i class="fas fa-trophy text-yellow-500"></i>
+                        <span class="text-sm font-semibold text-gray-700 dark:text-gray-200">
+                            Score: <span id="currentScore">0</span>/<span id="totalScore">0</span>
+                        </span>
+                    </div>
+                    <button id="darkModeToggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                        <i class="fas fa-moon text-gray-700 dark:text-yellow-400"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb Navigation -->
+    <div class="container mx-auto px-4 pt-24 pb-4">
+        <nav aria-label="breadcrumb">
+            <ol class="flex space-x-2 text-gray-600 dark:text-gray-400 flex-wrap">
+                <li><a href="index.html" class="hover:text-blue-600">Home</a></li>
+                <li><i class="fas fa-chevron-right text-xs mx-2"></i></li>
+                <li><a href="dashboard.html" class="hover:text-blue-600">Subjects</a></li>
+                <li><i class="fas fa-chevron-right text-xs mx-2"></i></li>
+                <li><a id="topicsBreadcrumb" href="#" class="hover:text-blue-600">...</a></li>
+                <li><i class="fas fa-chevron-right text-xs mx-2"></i></li>
+                <li id="currentTopicBreadcrumb" class="text-blue-600 font-semibold">...</li>
+            </ol>
+        </nav>
+    </div>
+
+    <!-- Progress Sidebar (Desktop) -->
+    <div class="hidden lg:block fixed left-4 top-32 w-64 bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-4 z-40">
+        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Learning Progress</h3>
+        <div class="space-y-3">
+            <div class="progress-item" data-section="syllabus">
+                <div class="flex items-center justify-between mb-1">
+                    <span class="text-sm text-gray-700 dark:text-gray-300">1. Syllabus</span>
+                    <i class="fas fa-circle-notch text-gray-400"></i>
+                </div>
+            </div>
+            <div class="progress-item" data-section="mcq">
+                <div class="flex items-center justify-between mb-1">
+                    <span class="text-sm text-gray-700 dark:text-gray-300">2. MCQ Practice</span>
+                    <i class="fas fa-circle-notch text-gray-400"></i>
+                </div>
+            </div>
+            <div class="progress-item" data-section="coding">
+                <div class="flex items-center justify-between mb-1">
+                    <span class="text-sm text-gray-700 dark:text-gray-300">3. Coding</span>
+                    <i class="fas fa-circle-notch text-gray-400"></i>
+                </div>
+            </div>
+            <div class="progress-item" data-section="interview">
+                <div class="flex items-center justify-between mb-1">
+                    <span class="text-sm text-gray-700 dark:text-gray-300">4. Interview Prep</span>
+                    <i class="fas fa-circle-notch text-gray-400"></i>
+                </div>
+            </div>
+            <div class="progress-item" data-section="simulator">
+                <div class="flex items-center justify-between mb-1">
+                    <span class="text-sm text-gray-700 dark:text-gray-300">5. AI Simulator</span>
+                    <i class="fas fa-circle-notch text-gray-400"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="container mx-auto px-4 pb-20" style="max-width: 1000px; margin-left: auto; margin-right: auto;">
+        
+        <!-- SECTION 1: AI Syllabus & Explanation -->
+        <section id="syllabusSection" class="learning-section mb-8">
+            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 transition-colors duration-300">
+                <div class="flex items-center justify-between mb-6">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center text-white">
+                            <i class="fas fa-book text-xl"></i>
+                        </div>
+                        <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Topic Overview</h2>
+                    </div>
+                    <button id="generateSyllabusBtn" class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                        <i class="fas fa-magic mr-2"></i>Generate
+                    </button>
+                </div>
+
+                <!-- Loading State -->
+                <div id="syllabusLoading" class="text-center py-12 hidden">
+                    <div class="spinner-border text-blue-600 mb-4" role="status"></div>
+                    <p class="text-gray-600 dark:text-gray-400">AI is generating syllabus...</p>
+                </div>
+
+                <!-- Content -->
+                <div id="syllabusContent" class="prose dark:prose-invert max-w-none hidden">
+                    <!-- AI-generated content will appear here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: MCQ Practice -->
+        <section id="mcqSection" class="learning-section mb-8 hidden">
+            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 transition-colors duration-300">
+                <div class="flex items-center justify-between mb-6">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 bg-gradient-to-br from-green-600 to-teal-600 rounded-xl flex items-center justify-center text-white">
+                            <i class="fas fa-question-circle text-xl"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-3xl font-bold text-gray-900 dark:text-white">MCQ Practice</h2>
+                            <p class="text-gray-600 dark:text-gray-400">Answer all questions to proceed</p>
+                        </div>
+                    </div>
+                    <button id="generateMCQBtn" class="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
+                        <i class="fas fa-magic mr-2"></i>Generate
+                    </button>
+                </div>
+
+                <!-- Score Tracker -->
+                <div id="mcqScoreTracker" class="bg-gradient-to-r from-green-50 to-teal-50 dark:from-gray-700 dark:to-gray-600 rounded-lg p-4 mb-6 hidden">
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-700 dark:text-gray-200 font-semibold">Progress:</span>
+                        <span class="text-green-600 dark:text-green-400 font-bold">
+                            <span id="mcqAnswered">0</span>/<span id="mcqTotal">0</span> Answered
+                        </span>
+                        <span class="text-gray-700 dark:text-gray-200 font-semibold">
+                            Score: <span id="mcqCorrect" class="text-green-600">0</span>/<span id="mcqTotalScore">0</span>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Loading State -->
+                <div id="mcqLoading" class="text-center py-12 hidden">
+                    <div class="spinner-border text-green-600 mb-4" role="status"></div>
+                    <p class="text-gray-600 dark:text-gray-400">Generating MCQs...</p>
+                </div>
+
+                <!-- MCQ Container -->
+                <div id="mcqContainer" class="space-y-6">
+                    <!-- MCQs will be dynamically loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: Coding Practice -->
+        <section id="codingSection" class="learning-section mb-8 hidden">
+            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 transition-colors duration-300">
+                <div class="flex items-center justify-between mb-6">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 bg-gradient-to-br from-purple-600 to-pink-600 rounded-xl flex items-center justify-center text-white">
+                            <i class="fas fa-code text-xl"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Coding Practice</h2>
+                            <p class="text-gray-600 dark:text-gray-400">Solve programming challenges</p>
+                        </div>
+                    </div>
+                    <button id="generateCodingBtn" class="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors">
+                        <i class="fas fa-magic mr-2"></i>Generate
+                    </button>
+                </div>
+
+                <!-- Loading State -->
+                <div id="codingLoading" class="text-center py-12 hidden">
+                    <div class="spinner-border text-purple-600 mb-4" role="status"></div>
+                    <p class="text-gray-600 dark:text-gray-400">Generating coding problems...</p>
+                </div>
+
+                <!-- Coding Problems Container -->
+                <div id="codingContainer" class="space-y-8">
+                    <!-- Coding problems will be dynamically loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: Interview Preparation -->
+        <section id="interviewSection" class="learning-section mb-8 hidden">
+            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 transition-colors duration-300">
+                <div class="flex items-center justify-between mb-6">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 bg-gradient-to-br from-red-600 to-orange-600 rounded-xl flex items-center justify-center text-white">
+                            <i class="fas fa-briefcase text-xl"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Interview Preparation</h2>
+                            <p class="text-gray-600 dark:text-gray-400">Common interview questions & answers</p>
+                        </div>
+                    </div>
+                    <button id="generateInterviewBtn" class="px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors">
+                        <i class="fas fa-magic mr-2"></i>Generate
+                    </button>
+                </div>
+
+                <!-- Loading State -->
+                <div id="interviewLoading" class="text-center py-12 hidden">
+                    <div class="spinner-border text-red-600 mb-4" role="status"></div>
+                    <p class="text-gray-600 dark:text-gray-400">Generating interview questions...</p>
+                </div>
+
+                <!-- Interview Q&A Container -->
+                <div id="interviewContainer" class="space-y-4">
+                    <!-- Interview questions will be dynamically loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: AI Interview Simulator -->
+        <section id="simulatorSection" class="learning-section mb-8 hidden">
+            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 transition-colors duration-300">
+                <div class="flex items-center justify-between mb-6">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 bg-gradient-to-br from-indigo-600 to-blue-600 rounded-xl flex items-center justify-center text-white">
+                            <i class="fas fa-robot text-xl"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-3xl font-bold text-gray-900 dark:text-white">AI Interview Simulator</h2>
+                            <p class="text-gray-600 dark:text-gray-400">Real-time interview practice</p>
+                        </div>
+                    </div>
+                    <button id="startSimulatorBtn" class="px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors">
+                        <i class="fas fa-play mr-2"></i>Start Session
+                    </button>
+                </div>
+
+                <!-- Chat Interface -->
+                <div id="simulatorChat" class="hidden">
+                    <div id="chatMessages" class="bg-gray-50 dark:bg-gray-900 rounded-lg p-4 h-96 overflow-y-auto mb-4 space-y-4">
+                        <!-- Chat messages will appear here -->
+                    </div>
+
+                    <!-- Input Area -->
+                    <div class="flex space-x-2">
+                        <input 
+                            type="text" 
+                            id="simulatorInput"
+                            placeholder="Type your answer..."
+                            class="flex-1 px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-600"
+                        >
+                        <button id="sendAnswerBtn" class="px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navigation Buttons -->
+        <div class="flex justify-between mt-8">
+            <button id="prevSectionBtn" class="px-6 py-3 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors hidden">
+                <i class="fas fa-arrow-left mr-2"></i>Previous
+            </button>
+            <button id="nextSectionBtn" class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors ml-auto">
+                Next<i class="fas fa-arrow-right ml-2"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toastContainer" class="fixed top-20 right-4 z-50 space-y-2"></div>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 py-8 transition-colors duration-300 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-gray-600 dark:text-gray-400">
+                &copy; 2026 ReviseX AI. Powered by Advanced AI Technology.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Prism.js for Code Highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-java.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script type="module" src="js/learn.js"></script>
+    <script src="js/theme.js"></script>
+</body>
+</html>

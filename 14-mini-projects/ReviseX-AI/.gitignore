@@ -1,0 +1,59 @@
+# ReviseX AI - .gitignore
+
+# API Keys and Secrets
+# IMPORTANT: Never commit API keys!
+api/config.js
+.env
+*.key
+secrets.json
+
+# IDE and Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependency directories
+node_modules/
+bower_components/
+
+# Build output
+dist/
+build/
+*.min.js
+*.min.css
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# OS generated files
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# Testing
+coverage/
+.nyc_output/
+
+# Optional: Uncomment if you want to ignore backups
+# *.backup
+# *.bak
+# backup/
+
+# User data (optional - uncomment to ignore user progress)
+# data/user-progress.json
+
+# Notes (optional)
+notes.txt
+TODO.txt

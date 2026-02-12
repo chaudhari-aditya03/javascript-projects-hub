@@ -1,4 +1,4 @@
-let arr = [1,2,3,1,2,5,1,4,7];
+let arr = [1,2,3,1,2,5,1,4];
 let a1 =[];
 let j =0;
 let uniqueArray = (arr)=>{

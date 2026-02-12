@@ -3,7 +3,7 @@
 //map : adds 2 to each element
 console.log([2,3,5,7,8,4,6,8,10].map(a => a+2));
 //filter : filters even numbers
-console.log([2,3,5,7,8,4,6,8,10].filter(num => num % 2 === 0));
+console.log([2,3,5,7,8,4,6,8].filter(num => num % 2 === 0));
 //reduce : sums all elements
 console.log([2,3,5,7,8,4,6,8,10].reduce((acc, num) => acc + num, 0));
 //find : finds first number greater than 5

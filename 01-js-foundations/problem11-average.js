@@ -1,4 +1,4 @@
-const avg =(a,b,c)=>{
-return (a+b+c)/3;
+const avg =(a,b)=>{
+return (a+b)/3;
 }
-console.log(avg(10,20,30));
+console.log(avg(10,20));
